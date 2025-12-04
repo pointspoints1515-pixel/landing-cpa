@@ -1,24 +1,77 @@
-import React from 'react';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import Features from './components/Features';
-import Screenshots from './components/Screenshots';
-import FAQ from './components/FAQ';
-import Footer from './components/Footer';
-
-function App() {
-  return (
-    <div className="min-h-screen bg-gaming-dark text-white font-sans selection:bg-gaming-accent selection:text-black">
-      <Header />
-      <main>
-        <Hero />
-        <Features />
-        <Screenshots />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
-  );
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NBA 2K MOD - Unlimited VC & Features</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              gaming: ['Rajdhani', 'sans-serif'],
+            },
+            colors: {
+              gaming: {
+                dark: '#050505',
+                card: '#121212',
+                accent: '#00d4ff', // Cyan
+                secondary: '#7c3aed', // Purple
+              }
+            },
+            animation: {
+              'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              'pulse-glow': {
+                '0%, 100%': { opacity: 1, boxShadow: '0 0 20px rgba(0, 212, 255, 0.5)' },
+                '50%': { opacity: .9, boxShadow: '0 0 40px rgba(0, 212, 255, 0.8)' },
+              },
+              'float': {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #050505;
+        color: #ffffff;
+      }
+      /* Custom scrollbar for gaming feel */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0d0d0d;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #00d4ff;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0"
+  }
 }
-
-export default App;
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
