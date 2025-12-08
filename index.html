@@ -98,11 +98,11 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem 2.5rem;
+            padding: 1rem 3.5rem;
             background: var(--gradient-main);
             color: white;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             border-radius: 50px;
             box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
@@ -120,6 +120,8 @@
             background: transparent;
             border: 2px solid var(--fnf-blue);
             box-shadow: 0 0 10px rgba(5, 217, 232, 0.2);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
         }
         
         .btn-outline:hover {
@@ -518,15 +520,15 @@
         @media (max-width: 480px) {
             .section-title { font-size: 2rem; }
             .safety-box { padding: 1.5rem; }
-            .btn-cta { width: 100%; }
+            .btn-cta { width: 100%; padding: 1rem 0; }
         }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
     "react": "https://aistudiocdn.com/react@^19.2.1",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
+    "react/": "https://aistudiocdn.com/react@^19.2.1/"
   }
 }
 </script>
@@ -547,12 +549,12 @@
                 <div class="compliance-badge">
                     <span>&#10004;</span> Safe & Policy Compliant
                 </div>
-                <h1>Friday Night Funkin <br><span class="text-gradient">Mobile Customization</span></h1>
+                <h1>Friday Night Funkin <br><span class="text-gradient">Mobile Customization Hub</span></h1>
                 <p>The #1 resource for custom tools, performance optimization, and visual enhancement guides. Personalize your rhythm game experience safely and easily.</p>
                 
                 <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; @media(min-width:900px){justify-content:flex-start;}">
-                    <!-- CTA Link - Placeholder for CPA URL -->
-                    <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta">Get Custom Tools</a>
+                    <!-- CTA Link -->
+                    <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta">Download</a>
                     <a href="#how-it-works" class="btn-cta btn-outline">How It Works</a>
                 </div>
             </div>
@@ -623,7 +625,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h4>Get the Tools</h4>
-                        <p>Click "Get Custom Tools" to access our secure directory of recommended third-party utilities and configuration files.</p>
+                        <p>Click "Download" to access our secure directory of recommended third-party utilities and configuration files.</p>
                     </div>
                 </div>
 
@@ -706,7 +708,7 @@
                 <img src="https://i.postimg.cc/SRctsZKS/download.jpg" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); width: 100%; opacity: 0.8;" alt="FNF Gameplay">
                 <div style="font-size: 0.7rem; color: #666; margin-top: 0.5rem;">Visual demonstration only</div>
             </div>
-            <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta" style="font-size: 1.5rem; padding: 1.5rem 4rem;">Get Custom Tools</a>
+            <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta" style="font-size: 1.5rem; padding: 1.5rem 4rem;">Download</a>
             <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Secure Access • Verified Tools</p>
         </div>
     </section>
