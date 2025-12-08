@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NBA 2K MOD - Unlimited VC & Unlocked Features</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
+    <title>FNF Mobile Customization Hub - Tools & Guides</title>
+    <meta name="description" content="Safe customization tools, performance guides, and visual enhancements for Friday Night Funkin mobile players.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+
     <style>
         /* --- CSS VARIABLES & RESET --- */
         :root {
-            --bg-dark: #050505;
-            --bg-card: #121212;
-            --bg-card-hover: #1a1a1a;
-            --accent: #00d4ff;
-            --accent-glow: rgba(0, 212, 255, 0.5);
-            --secondary: #7c3aed;
-            --secondary-glow: rgba(124, 58, 237, 0.5);
+            --bg-dark: #050507;
+            --bg-card: #0f0f13;
+            --bg-secondary: #16161d;
+            
+            --fnf-pink: #ff2a6d;
+            --fnf-blue: #05d9e8;
+            --fnf-purple: #7c4dff;
+            
             --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --border: rgba(255, 255, 255, 0.1);
-            --font-main: 'Inter', sans-serif;
-            --font-display: 'Rajdhani', sans-serif;
+            --text-muted: #a0a0b0;
+            
+            --font-main: 'Outfit', sans-serif;
+            --font-display: 'Permanent Marker', cursive;
+            
+            --gradient-main: linear-gradient(135deg, var(--fnf-pink), var(--fnf-purple));
+            --gradient-blue: linear-gradient(135deg, var(--fnf-blue), var(--fnf-purple));
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -36,41 +50,39 @@
             overflow-x: hidden;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
 
-        button {
-            cursor: pointer;
-            border: none;
-            outline: none;
-            font-family: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3, h4 {
-            font-family: var(--font-display);
-            text-transform: uppercase;
-            line-height: 1.1;
+        /* --- UTILITIES --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         .text-gradient {
-            background: linear-gradient(to right, var(--accent), var(--secondary));
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .text-blue-gradient {
+            background: var(--gradient-blue);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .section-title {
+            font-family: var(--font-main);
+            font-weight: 800;
             font-size: 2.5rem;
-            font-weight: 700;
             text-align: center;
             margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
         .section-subtitle {
@@ -82,57 +94,49 @@
             margin-right: auto;
         }
 
-        /* --- LAYOUT UTILITIES --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2.5rem;
+            background: var(--gradient-main);
+            color: white;
+            font-weight: 700;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid transparent;
         }
 
-        .section {
-            padding: 5rem 0;
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(255, 42, 109, 0.5);
         }
 
-        /* --- ANIMATIONS --- */
-        @keyframes pulse-glow {
-            0% { box-shadow: 0 0 10px var(--accent-glow); }
-            50% { box-shadow: 0 0 25px var(--accent-glow), 0 0 10px var(--accent); }
-            100% { box-shadow: 0 0 10px var(--accent-glow); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--fnf-blue);
+            box-shadow: 0 0 10px rgba(5, 217, 232, 0.2);
         }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        @keyframes fade-in-up {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
+        
+        .btn-outline:hover {
+            background: var(--fnf-blue);
+            color: #000;
+            box-shadow: 0 0 20px rgba(5, 217, 232, 0.6);
         }
 
         /* --- HEADER --- */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
             padding: 1.5rem 0;
-            transition: all 0.3s ease;
-            border-bottom: 1px solid transparent;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 100;
         }
-
-        header.scrolled {
-            background-color: rgba(5, 5, 5, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
+        
         .nav-content {
             display: flex;
             justify-content: space-between;
@@ -142,245 +146,188 @@
         .logo {
             font-family: var(--font-display);
             font-size: 1.8rem;
-            font-weight: 800;
             color: white;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        .desktop-nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .desktop-nav a {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: var(--text-muted);
-            transition: color 0.3s;
-            letter-spacing: 0.5px;
-        }
-
-        .desktop-nav a:hover {
-            color: var(--accent);
-        }
-
-        .mobile-toggle {
-            display: none;
-            color: white;
-            background: transparent;
-            font-size: 1.5rem;
-        }
-
-        /* Mobile Menu */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: var(--bg-dark);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 2rem;
-            transform: translateX(100%);
-            transition: transform 0.3s ease-in-out;
-        }
-
-        .mobile-menu.active {
-            transform: translateX(0);
-        }
-
-        .mobile-menu a {
-            font-size: 1.5rem;
-            font-weight: 700;
-            font-family: var(--font-display);
-        }
-
-        .close-menu {
-            position: absolute;
-            top: 2rem;
-            right: 2rem;
-            font-size: 2rem;
-            color: white;
-            background: transparent;
+            text-shadow: 2px 2px 0 var(--fnf-pink);
         }
 
         /* --- HERO SECTION --- */
         .hero {
             position: relative;
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             align-items: center;
-            padding-top: 80px; /* offset for header */
+            padding-top: 80px;
+            background: radial-gradient(circle at top center, #1a1a2e 0%, var(--bg-dark) 70%);
             overflow: hidden;
         }
 
-        .hero-bg-glow {
+        .hero::before {
+            content: '';
             position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, rgba(5, 5, 5, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .hero-content {
-            display: flex;
-            align-items: center;
-            gap: 4rem;
-        }
-
-        .hero-text {
-            flex: 1;
-            z-index: 10;
-        }
-
-        .hero-image {
-            flex: 1;
-            position: relative;
-            z-index: 10;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border);
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent);
+            top: -10%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: var(--fnf-blue);
+            filter: blur(150px);
+            opacity: 0.1;
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 600px;
+            height: 600px;
+            background: var(--fnf-pink);
+            filter: blur(150px);
+            opacity: 0.1;
+            border-radius: 50%;
+            z-index: 0;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            font-weight: 800;
             margin-bottom: 1.5rem;
-            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+            text-transform: uppercase;
         }
 
-        .hero p {
-            font-size: 1.1rem;
+        .hero-content p {
+            font-size: 1.2rem;
             color: var(--text-muted);
             margin-bottom: 2.5rem;
-            max-width: 500px;
+            max-width: 90%;
         }
 
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 1rem;
-            background-color: var(--accent);
-            color: #000;
-            padding: 1.2rem 2.5rem;
-            border-radius: 12px;
-            font-weight: 800;
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            font-family: var(--font-display);
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-            animation: pulse-glow 2s infinite;
+        .compliance-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .compliance-badge span {
+            color: #4ade80;
+            margin-right: 5px;
         }
 
-        .btn-download:hover {
-            transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
-            background-color: #33e4ff;
-        }
-
-        .hero-img-wrapper {
-            position: relative;
-            border-radius: 20px;
-            border: 2px solid rgba(255, 255, 255, 0.1);
+        /* --- VISUALS/IMAGES --- */
+        .visual-card {
+            background: var(--bg-card);
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            transform: perspective(1000px) rotateY(-5deg);
-            transition: transform 0.5s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            transform: rotate(3deg);
+            transition: transform 0.3s;
         }
 
-        .hero-img-wrapper:hover {
-            transform: perspective(1000px) rotateY(0deg);
+        .visual-card:hover {
+            transform: rotate(0deg) scale(1.02);
+            border-color: var(--fnf-blue);
         }
 
-        .hero-img-wrapper img {
+        .visual-card img {
             width: 100%;
             height: auto;
-            display: block;
+            opacity: 0.9;
         }
 
-        .info-stats {
-            margin-top: 1.5rem;
-            display: flex;
-            gap: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            font-family: monospace;
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0,0,0,0.8);
+            padding: 0.5rem;
+            font-size: 0.7rem;
+            text-align: center;
+            color: #aaa;
         }
 
-        /* --- FEATURES SECTION --- */
+        /* --- FEATURES --- */
         .features {
-            background-color: #0a0a0a;
-            position: relative;
+            padding: 5rem 0;
+            background: var(--bg-dark);
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
 
         .feature-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
+            background: var(--bg-secondary);
             padding: 2rem;
             border-radius: 16px;
-            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
             position: relative;
             overflow: hidden;
         }
 
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: 0.3s;
+        }
+
         .feature-card:hover {
             transform: translateY(-5px);
-            border-color: var(--accent);
-            background-color: var(--bg-card-hover);
+            background: var(--bg-card);
+        }
+        
+        .feature-card:hover::before {
+            opacity: 1;
         }
 
         .feature-icon {
             width: 50px;
             height: 50px;
-            background-color: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
+            border-radius: 12px;
+            background: rgba(255, 42, 109, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-bottom: 1.5rem;
-            color: var(--accent);
+            font-size: 1.5rem;
+            color: var(--fnf-pink);
+        }
+        
+        .feature-card:nth-child(2) .feature-icon {
+            background: rgba(5, 217, 232, 0.1);
+            color: var(--fnf-blue);
+        }
+        
+        .feature-card:nth-child(3) .feature-icon {
+            background: rgba(124, 77, 255, 0.1);
+            color: var(--fnf-purple);
         }
 
         .feature-card h3 {
@@ -388,181 +335,198 @@
             margin-bottom: 0.75rem;
             color: white;
         }
-
+        
         .feature-card p {
             font-size: 0.95rem;
             color: var(--text-muted);
+            line-height: 1.6;
         }
 
-        /* --- SCREENSHOTS SECTION --- */
-        .screenshots {
-            background-color: var(--bg-dark);
+        /* --- HOW IT WORKS --- */
+        .steps {
+            padding: 5rem 0;
+            background: var(--bg-secondary);
         }
 
-        .screenshot-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .screenshot-item {
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            position: relative;
-            aspect-ratio: 16/9;
-        }
-
-        .screenshot-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .screenshot-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* --- FAQ SECTION --- */
-        .faq {
-            background: linear-gradient(to bottom, var(--bg-dark), #0f0f0f);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
+        .step-list {
             display: flex;
             flex-direction: column;
-            gap: 1rem;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .faq-item {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            overflow: hidden;
-            transition: all 0.3s;
-        }
-
-        .faq-item.active {
-            border-color: var(--accent);
-        }
-
-        .faq-question {
-            width: 100%;
-            padding: 1.5rem;
-            text-align: left;
-            background: transparent;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
+        .step-item {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            align-items: flex-start;
+            gap: 1.5rem;
+            background: var(--bg-dark);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
 
-        .faq-question .icon {
-            width: 24px;
-            height: 24px;
+        .step-number {
+            background: var(--fnf-blue);
+            color: black;
+            font-weight: 800;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s;
-            color: var(--accent);
-            border: 1px solid var(--border);
-            border-radius: 50%;
+            flex-shrink: 0;
         }
 
-        .faq-item.active .faq-question .icon {
-            transform: rotate(45deg);
-            background-color: var(--accent);
-            color: black;
+        .step-content h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
         }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            padding: 0 1.5rem;
+        
+        .step-content p {
             color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
-        .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding-bottom: 1.5rem;
+        /* --- SAFETY SECTION (Important) --- */
+        .safety {
+            padding: 4rem 0;
+            background: linear-gradient(rgba(5, 5, 7, 0.95), rgba(5, 5, 7, 0.95)), 
+                        url('https://i.postimg.cc/tgfrz01L/download-(1).jpg');
+            background-size: cover;
+            background-position: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .safety-box {
+            background: rgba(15, 15, 19, 0.9);
+            border: 1px solid var(--fnf-pink);
+            border-radius: 16px;
+            padding: 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .safety-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+
+        .safety-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: #d1d1d1;
+            font-size: 0.9rem;
+        }
+
+        .check-icon {
+            color: #4ade80;
+            font-weight: bold;
+        }
+        
+        .cross-icon {
+            color: var(--fnf-pink);
+            font-weight: bold;
+        }
+
+        /* --- FAQ --- */
+        .faq {
+            padding: 5rem 0;
+        }
+
+        .faq-grid {
+            display: grid;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .faq-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+        
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            padding: 6rem 0;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a2e 0%, var(--bg-dark) 100%);
         }
 
         /* --- FOOTER --- */
         footer {
-            border-top: 1px solid var(--border);
+            background: #020203;
             padding: 3rem 0;
-            background-color: #020202;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+            color: #666;
             text-align: center;
-        }
-
-        .footer-logo {
-            font-family: var(--font-display);
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            display: inline-block;
         }
 
         .footer-links {
             display: flex;
             justify-content: center;
             gap: 2rem;
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
+            margin-bottom: 1.5rem;
         }
-
+        
         .footer-links a:hover {
-            color: var(--accent);
+            color: var(--fnf-blue);
         }
-
-        .copyright {
-            font-size: 0.8rem;
-            color: #555;
-            max-width: 600px;
+        
+        .disclaimer {
+            max-width: 700px;
             margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        /* --- ICONS SVG --- */
-        .icon-svg {
-            width: 100%;
-            height: 100%;
+            line-height: 1.6;
         }
 
         /* --- RESPONSIVE --- */
-        @media (max-width: 968px) {
-            .hero h1 { font-size: 3rem; }
-            .hero-content { flex-direction: column; text-align: center; }
-            .hero-text { margin-bottom: 2rem; }
-            .btn-download { width: 100%; justify-content: center; }
-            .info-stats { justify-content: center; }
-            
-            .desktop-nav { display: none; }
-            .mobile-toggle { display: block; }
-            
-            .hero-img-wrapper { transform: none; }
-            .hero-img-wrapper:hover { transform: none; }
+        @media (max-width: 900px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { margin: 0 auto 2rem; }
+            .visual-card { 
+                max-width: 400px; 
+                margin: 0 auto; 
+                transform: rotate(0deg);
+            }
         }
 
         @media (max-width: 480px) {
-            .hero h1 { font-size: 2.2rem; }
-            .section-title { font-size: 1.8rem; }
-            .feature-card { padding: 1.5rem; }
+            .section-title { font-size: 2rem; }
+            .safety-box { padding: 1.5rem; }
+            .btn-cta { width: 100%; }
         }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
     "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/"
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0"
   }
 }
 </script>
@@ -570,317 +534,224 @@
 <body>
 
     <!-- Header -->
-    <header id="header">
+    <header>
         <div class="container nav-content">
-            <a href="#" class="logo">
-                <!-- Gamepad Icon SVG -->
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent);">
-                    <line x1="6" y1="12" x2="10" y2="12"></line>
-                    <line x1="8" y1="10" x2="8" y2="14"></line>
-                    <line x1="15" y1="13" x2="15.01" y2="13"></line>
-                    <line x1="18" y1="11" x2="18.01" y2="11"></line>
-                    <rect x="2" y="6" width="20" height="12" rx="2"></rect>
-                </svg>
-                NBA 2K <span>MOD</span>
-            </a>
-
-            <nav class="desktop-nav">
-                <a href="#features">FEATURES</a>
-                <a href="#screenshots">SCREENSHOTS</a>
-                <a href="#faq">FAQ</a>
-            </nav>
-
-            <button class="mobile-toggle" id="menu-btn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="3" y1="12" x2="21" y2="12"></line>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <line x1="3" y1="18" x2="21" y2="18"></line>
-                </svg>
-            </button>
+            <div class="logo">FNF <span style="color:var(--fnf-blue)">HUB</span></div>
         </div>
     </header>
 
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobile-menu">
-        <button class="close-menu" id="close-menu-btn">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-            </svg>
-        </button>
-        <a href="#features" class="mobile-link">FEATURES</a>
-        <a href="#screenshots" class="mobile-link">SCREENSHOTS</a>
-        <a href="#faq" class="mobile-link">FAQ</a>
-    </div>
-
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg-glow"></div>
-        <div class="container hero-content">
-            <div class="hero-text">
-                <div class="badge">
-                    <div class="status-dot"></div>
-                    LATEST VERSION V98.0
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="compliance-badge">
+                    <span>&#10004;</span> Safe & Policy Compliant
                 </div>
-                <h1>DOMINATE THE <br><span class="text-gradient">HARDWOOD</span></h1>
-                <p>Unlock the full potential of NBA 2K. Get unlimited VC, maxed-out players, and exclusive skins. The ultimate basketball experience is one tap away.</p>
+                <h1>Friday Night Funkin <br><span class="text-gradient">Mobile Customization</span></h1>
+                <p>The #1 resource for custom tools, performance optimization, and visual enhancement guides. Personalize your rhythm game experience safely and easily.</p>
                 
-                <button onclick="window.open('https://attorneycambridge.com/cl/i/4o2dvj', '_blank')" class="btn-download">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Download Mod APK
-                </button>
-
-                <div class="info-stats">
-                    <span>★ 4.9/5 Rating</span>
-                    <span>✓ 100% Secure</span>
-                    <span>Android & iOS</span>
+                <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; @media(min-width:900px){justify-content:flex-start;}">
+                    <!-- CTA Link - Placeholder for CPA URL -->
+                    <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta">Get Custom Tools</a>
+                    <a href="#how-it-works" class="btn-cta btn-outline">How It Works</a>
                 </div>
             </div>
 
-            <div class="hero-image animate-float">
-                <div class="hero-img-wrapper">
-                    <!-- 
-                       Using a high quality placeholder as the provided ibb link (https://ibb.co/FkvDpBH5) 
-                       is a viewer page and does not work directly in img tags.
-                    -->
-                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ee3?q=80&w=2090&auto=format&fit=crop" alt="NBA 2K Gameplay">
+            <!-- Visual Demonstration -->
+            <div class="hero-visuals">
+                <div class="visual-card">
+                    <img src="https://i.postimg.cc/tgfrz01L/download-(1).jpg" alt="Friday Night Funkin Gameplay Customization Example">
+                    <div class="caption">Game visuals shown for demonstration purposes only</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section id="features" class="section features">
+    <section class="features">
         <div class="container">
-            <h2 class="section-title">MOD <span class="text-gradient">FEATURES</span></h2>
-            <p class="section-subtitle">Why players are switching to the modded version.</p>
-
+            <h2 class="section-title">Why Use <span class="text-blue-gradient">Custom Tools?</span></h2>
+            <p class="section-subtitle">Enhance your gameplay without breaking the rules. Our toolkit guides focus on optimization and personalization.</p>
+            
             <div class="features-grid">
                 <!-- Feature 1 -->
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <circle cx="8" cy="8" r="6"></circle>
-                            <path d="M18.09 10.37A6 6 0 1 1 10.34 18"></path>
-                            <path d="M7 6h1v4"></path>
-                            <path d="M16.72 11.06A5 5 0 0 0 16 10v3.73A6 6 0 0 1 12 18v2.25a2.25 2.25 0 0 0 4.75-2.25V11.06z"></path>
-                        </svg>
-                    </div>
-                    <h3>Unlimited VC</h3>
-                    <p>Never worry about grinding again. Get unlimited Virtual Currency to upgrade your players and buy packs instantly.</p>
+                    <div class="feature-icon">&#9881;</div>
+                    <h3>Performance Boost</h3>
+                    <p>Learn how to optimize settings to reduce lag and increase FPS on mobile devices. Essential for high-level rhythm gameplay.</p>
                 </div>
 
                 <!-- Feature 2 -->
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </div>
-                    <h3>Modded Players</h3>
-                    <p>Access a full roster of legends and max-stat players right from the start. Dominate every match.</p>
+                    <div class="feature-icon">&#127912;</div>
+                    <h3>Visual Customization</h3>
+                    <p>Guides on applying custom skins, note colors, and background overlays to make the game look exactly how you want.</p>
                 </div>
 
                 <!-- Feature 3 -->
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
-                        </svg>
-                    </div>
-                    <h3>Better Graphics</h3>
-                    <p>Optimized textures and lighting effects for high-end mobile devices, pushing 120FPS gameplay.</p>
+                    <div class="feature-icon">&#127908;</div>
+                    <h3>Audio Tools</h3>
+                    <p>Setup guides for audio latency correction and rhythm calibration to ensure your taps hit perfectly on beat.</p>
                 </div>
 
                 <!-- Feature 4 -->
                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                        </svg>
-                    </div>
-                    <h3>Android & iOS</h3>
-                    <p>Fully compatible cross-platform installation. Works on rooted/jailbroken and stock devices alike.</p>
-                </div>
-
-                <!-- Feature 5 -->
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
-                            <line x1="16" y1="8" x2="2" y2="22"></line>
-                            <line x1="17.5" y1="15" x2="9" y2="15"></line>
-                        </svg>
-                    </div>
-                    <h3>Custom Skins</h3>
-                    <p>Unlock exclusive court skins, streetwear, and throwback jerseys that aren't available in the standard shop.</p>
-                </div>
-                
-                 <!-- Feature 6 -->
-                 <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                        </svg>
-                    </div>
-                    <h3>Anti-Ban</h3>
-                    <p>Our sophisticated proxy system protects your account from detection, ensuring you play safely.</p>
+                    <div class="feature-icon">&#128249;</div>
+                    <h3>Recording Overlays</h3>
+                    <p>Tools to add input overlays and hand-cam styles for content creators who want to record their gameplay.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Screenshots Section -->
-    <section id="screenshots" class="section screenshots">
+    <!-- How It Works -->
+    <section id="how-it-works" class="steps">
         <div class="container">
-            <h2 class="section-title">IN-GAME <span class="text-gradient">VISUALS</span></h2>
-            <p class="section-subtitle">Experience console-quality graphics on mobile.</p>
+            <h2 class="section-title">How It <span class="text-gradient">Works</span></h2>
+            
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Select Your Category</h4>
+                        <p>Browse our library of customization topics: Visuals, Audio, Performance, or Creation Tools.</p>
+                    </div>
+                </div>
 
-            <div class="screenshot-grid">
-                <!-- Repeats the hero image as requested -->
-                <div class="screenshot-item">
-                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ee3?q=80&w=2090&auto=format&fit=crop" alt="Gameplay 1">
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Get the Tools</h4>
+                        <p>Click "Get Custom Tools" to access our secure directory of recommended third-party utilities and configuration files.</p>
+                    </div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ee3?q=80&w=2090&auto=format&fit=crop" alt="Gameplay 2">
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Follow Setup Guide</h4>
+                        <p>Use our detailed, step-by-step instructions to apply changes safely. No root or jailbreak required for most tools.</p>
+                    </div>
                 </div>
-                <div class="screenshot-item">
-                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ee3?q=80&w=2090&auto=format&fit=crop" alt="Gameplay 3">
+            </div>
+        </div>
+    </section>
+
+    <!-- Safety & Transparency Section -->
+    <section class="safety">
+        <div class="container">
+            <div class="safety-box">
+                <h2 style="color:white; margin-bottom:1rem; font-family: var(--font-display);">Safety & Transparency</h2>
+                <p style="color:var(--text-muted);">We believe in a fair and safe gaming community. This website is a resource hub for customization, not a source for hacks.</p>
+                
+                <div class="safety-grid">
+                    <div class="safety-item">
+                        <span class="check-icon">&#10004;</span> No Malware or Adware
+                    </div>
+                    <div class="safety-item">
+                        <span class="cross-icon">&#10008;</span> No Game Files Hosted
+                    </div>
+                    <div class="safety-item">
+                        <span class="check-icon">&#10004;</span> Safe 3rd Party Tools
+                    </div>
+                    <div class="safety-item">
+                        <span class="cross-icon">&#10008;</span> No Modified APKs
+                    </div>
+                    <div class="safety-item">
+                        <span class="check-icon">&#10004;</span> No Root Required
+                    </div>
+                    <div class="safety-item">
+                        <span class="cross-icon">&#10008;</span> No Cheats/Hacks
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section id="faq" class="section faq">
+    <section class="faq">
         <div class="container">
-            <h2 class="section-title">COMMON <span class="text-gradient">QUESTIONS</span></h2>
+            <h2 class="section-title">Frequently Asked <span class="text-blue-gradient">Questions</span></h2>
             
-            <div class="faq-container">
+            <div class="faq-grid">
                 <div class="faq-item">
-                    <button class="faq-question">
-                        Is this MOD safe to use?
-                        <span class="icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, our MOD includes a built-in anti-ban system that proxies connection requests to keep your account safe from detection.</p>
-                    </div>
+                    <h4>Is this an official FNF website?</h4>
+                    <p>No. We are a fan-made community hub providing guides and tools for customization. We are not affiliated with the official developers.</p>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        Do I need to root/jailbreak my device?
-                        <span class="icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>No, this version is signed properly and installs like a regular application on both Android and iOS devices without needing special permissions.</p>
-                    </div>
+                    <h4>Is it safe to use these tools?</h4>
+                    <p>Yes. We only recommend tools that do not modify the game's core code or provide unfair advantages. However, you use them at your own responsibility.</p>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        How do I get the Unlimited VC?
-                        <span class="icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Once installed, the VC counter will freeze at the maximum value. You can purchase packs and upgrades, and your balance will instantly reset to max.</p>
-                    </div>
+                    <h4>Do these tools work on iOS and Android?</h4>
+                    <p>Most customization guides provided here are compatible with Android devices. iOS support depends on the specific tool being used.</p>
                 </div>
 
                 <div class="faq-item">
-                    <button class="faq-question">
-                        Does it work on the latest game version?
-                        <span class="icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, we update the MOD APK within 24 hours of any official game update to ensure compatibility and stability.</p>
-                    </div>
-                </div>
-
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Why do I need to complete verification?
-                        <span class="icon">+</span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>The verification step prevents bot traffic from overloading our secure servers and ensures fair access for real players trying to download.</p>
-                    </div>
+                    <h4>Does this unlock paid content?</h4>
+                    <p>No. We strictly adhere to policies against piracy. We do not provide methods to bypass paywalls or acquire paid content for free.</p>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="section-title" style="margin-bottom: 2rem;">Ready to Customize?</h2>
+            <div style="margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                <img src="https://i.postimg.cc/SRctsZKS/download.jpg" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); width: 100%; opacity: 0.8;" alt="FNF Gameplay">
+                <div style="font-size: 0.7rem; color: #666; margin-top: 0.5rem;">Visual demonstration only</div>
+            </div>
+            <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta" style="font-size: 1.5rem; padding: 1.5rem 4rem;">Get Custom Tools</a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Secure Access • Verified Tools</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">NBA 2K <span>MOD</span></div>
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Support</a>
+                <a href="#">Terms of Use</a>
+                <a href="#">DMCA</a>
+                <a href="#">Contact</a>
             </div>
-            <p class="copyright">
-                &copy; 2024 NBA 2K Mod Team. All rights reserved.<br>
-                This site is not affiliated with, endorsed by, or sponsored by the official game developers. 
-                All trademarks are property of their respective owners.
-            </p>
+            <div class="disclaimer">
+                <p>&copy; 2024 FNF Mobile Hub. All rights reserved.</p>
+                <br>
+                <p>DISCLAIMER: This website is a fan-operated resource providing educational guides and customization tools. Friday Night Funkin is a trademark of its respective owners. This site is not affiliated with, endorsed by, or sponsored by the official developers. No official game files are hosted on this server.</p>
+            </div>
         </div>
     </footer>
 
-    <!-- Vanilla JS Logic -->
+    <!-- Simple Animation Script -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Mobile Menu Logic
-            const menuBtn = document.getElementById('menu-btn');
-            const closeMenuBtn = document.getElementById('close-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const observerOptions = {
+                threshold: 0.1
+            };
 
-            function toggleMenu() {
-                mobileMenu.classList.toggle('active');
-            }
-
-            menuBtn.addEventListener('click', toggleMenu);
-            closeMenuBtn.addEventListener('click', toggleMenu);
-            
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', toggleMenu);
-            });
-
-            // Sticky Header Logic
-            const header = document.getElementById('header');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 20) {
-                    header.classList.add('scrolled');
-                } else {
-                    header.classList.remove('scrolled');
-                }
-            });
-
-            // FAQ Accordion Logic
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    
-                    // Close all other items
-                    faqItems.forEach(i => i.classList.remove('active'));
-                    
-                    // Toggle clicked item
-                    if (!isActive) {
-                        item.classList.add('active');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
+            }, observerOptions);
+
+            // Select elements to animate
+            const animatedElements = document.querySelectorAll('.feature-card, .step-item, .faq-item, .visual-card');
+            
+            animatedElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'all 0.6s ease-out';
+                observer.observe(el);
             });
         });
     </script>
