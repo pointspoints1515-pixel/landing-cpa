@@ -1,761 +1,443 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FNF Mobile Customization Hub - Tools & Guides</title>
-    <meta name="description" content="Safe customization tools, performance guides, and visual enhancements for Friday Night Funkin mobile players.">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Permanent+Marker&display=swap" rel="stylesheet">
+:root {
+        --primary: #E63946;
+        --secondary: #F28C28;
+        --accent: #FFB703;
+        --cream: #FFF9F5;
+        --dark: #2B2D42;
+        --light-grey: #F8F9FA;
+        --text: #4A4A4A;
+        --shadow: 0 10px 30px rgba(0,0,0,0.1);
+        --transition: all 0.3s ease;
+    }
 
-    <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --bg-dark: #050507;
-            --bg-card: #0f0f13;
-            --bg-secondary: #16161d;
-            
-            --fnf-pink: #ff2a6d;
-            --fnf-blue: #05d9e8;
-            --fnf-purple: #7c4dff;
-            
-            --text-main: #ffffff;
-            --text-muted: #a0a0b0;
-            
-            --font-main: 'Outfit', sans-serif;
-            --font-display: 'Permanent Marker', cursive;
-            
-            --gradient-main: linear-gradient(135deg, var(--fnf-pink), var(--fnf-purple));
-            --gradient-blue: linear-gradient(135deg, var(--fnf-blue), var(--fnf-purple));
-        }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    body {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background-color: #fff;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+        color: var(--dark);
+    }
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: var(--font-main);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+    a {
+        text-decoration: none;
+        transition: var(--transition);
+    }
 
-        a { text-decoration: none; color: inherit; transition: 0.3s; }
-        ul { list-style: none; }
-        img { max-width: 100%; display: block; }
+    ul {
+        list-style: none;
+    }
 
-        /* --- UTILITIES --- */
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
 
-        .text-gradient {
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .text-blue-gradient {
-            background: var(--gradient-blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+    /* Header */
+    header {
+        background: #fff;
+        padding: 20px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
 
-        .section-title {
-            font-family: var(--font-main);
-            font-weight: 800;
-            font-size: 2.5rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-        .section-subtitle {
-            text-align: center;
-            color: var(--text-muted);
-            margin-bottom: 3rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
+    .logo {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--primary);
+        font-family: 'Playfair Display', serif;
+    }
 
-        .btn-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem 3.5rem;
-            background: var(--gradient-main);
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-            border-radius: 50px;
-            box-shadow: 0 10px 20px rgba(255, 42, 109, 0.3);
-            transition: transform 0.3s, box-shadow 0.3s;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 2px solid transparent;
-        }
+    /* Hero Section */
+    .hero {
+        padding: 100px 0;
+        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                    url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        text-align: center;
+    }
 
-        .btn-cta:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(255, 42, 109, 0.5);
-        }
+    .hero h1 {
+        font-size: 3.5rem;
+        color: #fff;
+        margin-bottom: 20px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--fnf-blue);
-            box-shadow: 0 0 10px rgba(5, 217, 232, 0.2);
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .btn-outline:hover {
-            background: var(--fnf-blue);
-            color: #000;
-            box-shadow: 0 0 20px rgba(5, 217, 232, 0.6);
-        }
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
 
-        /* --- HEADER --- */
-        header {
-            padding: 1.5rem 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 100;
-        }
-        
-        .nav-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .btn {
+        display: inline-block;
+        padding: 18px 40px;
+        background-color: var(--primary);
+        color: #fff;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
+    }
 
-        .logo {
-            font-family: var(--font-display);
-            font-size: 1.8rem;
-            color: white;
-            text-shadow: 2px 2px 0 var(--fnf-pink);
-        }
+    .btn:hover {
+        background-color: var(--secondary);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(242, 140, 40, 0.4);
+    }
 
-        /* --- HERO SECTION --- */
-        .hero {
-            position: relative;
-            min-height: 90vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px;
-            background: radial-gradient(circle at top center, #1a1a2e 0%, var(--bg-dark) 70%);
-            overflow: hidden;
-        }
+    /* Featured Recipes */
+    .section-title {
+        text-align: center;
+        margin-bottom: 60px;
+    }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -10%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: var(--fnf-blue);
-            filter: blur(150px);
-            opacity: 0.1;
-            border-radius: 50%;
-            z-index: 0;
-        }
-        
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -10%;
-            left: -10%;
-            width: 600px;
-            height: 600px;
-            background: var(--fnf-pink);
-            filter: blur(150px);
-            opacity: 0.1;
-            border-radius: 50%;
-            z-index: 0;
-        }
+    .section-title h2 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
+    .section-title .underline {
+        width: 80px;
+        height: 4px;
+        background: var(--secondary);
+        margin: 0 auto;
+    }
 
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
-            font-weight: 800;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-        }
+    .featured {
+        padding: 80px 0;
+        background-color: var(--cream);
+    }
 
-        .hero-content p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 90%;
-        }
+    .recipe-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
 
-        .compliance-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
-        
-        .compliance-badge span {
-            color: #4ade80;
-            margin-right: 5px;
-        }
+    .recipe-card {
+        background: #fff;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
 
-        /* --- VISUALS/IMAGES --- */
-        .visual-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.1);
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-            transform: rotate(3deg);
-            transition: transform 0.3s;
-        }
+    .recipe-card:hover {
+        transform: translateY(-10px);
+    }
 
-        .visual-card:hover {
-            transform: rotate(0deg) scale(1.02);
-            border-color: var(--fnf-blue);
-        }
+    .recipe-img {
+        height: 250px;
+        width: 100%;
+        object-fit: cover;
+    }
 
-        .visual-card img {
-            width: 100%;
-            height: auto;
-            opacity: 0.9;
-        }
+    .recipe-content {
+        padding: 25px;
+    }
 
-        .caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: rgba(0,0,0,0.8);
-            padding: 0.5rem;
-            font-size: 0.7rem;
-            text-align: center;
-            color: #aaa;
-        }
+    .recipe-content h3 {
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+    }
 
-        /* --- FEATURES --- */
-        .features {
-            padding: 5rem 0;
-            background: var(--bg-dark);
-        }
+    .recipe-content p {
+        font-size: 0.95rem;
+        color: #666;
+    }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
+    /* Categories */
+    .categories {
+        padding: 80px 0;
+        text-align: center;
+    }
 
-        .feature-card {
-            background: var(--bg-secondary);
-            padding: 2rem;
-            border-radius: 16px;
-            border: 1px solid rgba(255,255,255,0.05);
-            transition: 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
 
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: var(--gradient-main);
-            opacity: 0;
-            transition: 0.3s;
-        }
+    .category-item {
+        padding: 30px;
+        background: var(--light-grey);
+        border-radius: 10px;
+        font-weight: 600;
+        color: var(--dark);
+        cursor: pointer;
+        transition: var(--transition);
+        border-bottom: 4px solid transparent;
+    }
 
-        .feature-card:hover {
-            transform: translateY(-5px);
-            background: var(--bg-card);
-        }
-        
-        .feature-card:hover::before {
-            opacity: 1;
-        }
+    .category-item:hover {
+        background: #fff;
+        border-bottom-color: var(--secondary);
+        box-shadow: var(--shadow);
+    }
 
-        .feature-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            background: rgba(255, 42, 109, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            color: var(--fnf-pink);
-        }
-        
-        .feature-card:nth-child(2) .feature-icon {
-            background: rgba(5, 217, 232, 0.1);
-            color: var(--fnf-blue);
-        }
-        
-        .feature-card:nth-child(3) .feature-icon {
-            background: rgba(124, 77, 255, 0.1);
-            color: var(--fnf-purple);
-        }
+    /* Testimonials */
+    .testimonials {
+        padding: 80px 0;
+        background-color: var(--dark);
+        color: #fff;
+    }
 
-        .feature-card h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.75rem;
-            color: white;
-        }
-        
-        .feature-card p {
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
+    .testimonials h2 {
+        color: #fff;
+    }
 
-        /* --- HOW IT WORKS --- */
-        .steps {
-            padding: 5rem 0;
-            background: var(--bg-secondary);
-        }
+    .testimonial-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
 
-        .step-list {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .testimonial-card {
+        padding: 30px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 15px;
+        font-style: italic;
+    }
 
-        .step-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            background: var(--bg-dark);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
+    .user-info {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+    }
 
-        .step-number {
-            background: var(--fnf-blue);
-            color: black;
-            font-weight: 800;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
+    .user-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 15px;
+        background: #ccc;
+    }
 
-        .step-content h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .step-content p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+    /* Final CTA */
+    .final-cta {
+        padding: 100px 0;
+        text-align: center;
+        background-color: var(--cream);
+    }
 
-        /* --- SAFETY SECTION (Important) --- */
-        .safety {
-            padding: 4rem 0;
-            background: linear-gradient(rgba(5, 5, 7, 0.95), rgba(5, 5, 7, 0.95)), 
-                        url('https://i.postimg.cc/tgfrz01L/download-(1).jpg');
-            background-size: cover;
-            background-position: center;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
+    .final-cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
 
-        .safety-box {
-            background: rgba(15, 15, 19, 0.9);
-            border: 1px solid var(--fnf-pink);
-            border-radius: 16px;
-            padding: 3rem;
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    /* Footer */
+    footer {
+        background: #fff;
+        padding: 50px 0 20px;
+        border-top: 1px solid #eee;
+    }
 
-        .safety-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-            text-align: left;
-        }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
 
-        .safety-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            color: #d1d1d1;
-            font-size: 0.9rem;
-        }
+    .footer-links a {
+        margin-left: 20px;
+        color: var(--text);
+    }
 
-        .check-icon {
-            color: #4ade80;
-            font-weight: bold;
-        }
-        
-        .cross-icon {
-            color: var(--fnf-pink);
-            font-weight: bold;
-        }
+    .footer-links a:hover {
+        color: var(--primary);
+    }
 
-        /* --- FAQ --- */
-        .faq {
-            padding: 5rem 0;
-        }
+    .copyright {
+        width: 100%;
+        text-align: center;
+        margin-top: 40px;
+        font-size: 0.9rem;
+        color: #999;
+    }
 
-        .faq-grid {
-            display: grid;
-            gap: 1.5rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 2.5rem; }
+        .recipe-grid { grid-template-columns: 1fr; }
+        .footer-content { flex-direction: column; text-align: center; }
+        .footer-links a { margin: 0 10px; }
+    }
+</style> <header>
+    <div class="container">
+        <nav>
+            <div class="logo">Recipe Paradise</div>
+            <div class="footer-links">
+                <a href="#recipes">Recipes</a>
+                <a href="#categories">Categories</a>
+            </div>
+        </nav>
+    </div>
+</header>
 
-        .faq-item {
-            background: var(--bg-card);
-            border-radius: 10px;
-            padding: 1.5rem;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-        
-        .faq-item h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-        
-        .faq-item p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
+<section class="hero">
+    <div class="container">
+        <h1>Discover Hundreds of Delicious Recipes</h1>
+        <p>Explore easy, healthy, and family-friendly recipes from around the world. Elevate your cooking game today.</p>
+        <a href="https://attorneycambridge.com/cl/i/vej19x" class="btn">GET ALL RECIPES</a>
+    </div>
+</section>
 
-        /* --- CTA SECTION --- */
-        .cta-section {
-            padding: 6rem 0;
-            text-align: center;
-            background: radial-gradient(circle at center, #1a1a2e 0%, var(--bg-dark) 100%);
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background: #020203;
-            padding: 3rem 0;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.85rem;
-            color: #666;
-            text-align: center;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-links a:hover {
-            color: var(--fnf-blue);
-        }
-        
-        .disclaimer {
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-content h1 { font-size: 2.5rem; }
-            .hero-content p { margin: 0 auto 2rem; }
-            .visual-card { 
-                max-width: 400px; 
-                margin: 0 auto; 
-                transform: rotate(0deg);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .section-title { font-size: 2rem; }
-            .safety-box { padding: 1.5rem; }
-            .btn-cta { width: 100%; padding: 1rem 0; }
-        }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "react/": "https://aistudiocdn.com/react@^19.2.1/"
-  }
-}
-</script>
-</head>
-<body>
-
-    <!-- Header -->
-    <header>
-        <div class="container nav-content">
-            <div class="logo">FNF <span style="color:var(--fnf-blue)">HUB</span></div>
+<section class="featured" id="recipes">
+    <div class="container">
+        <div class="section-title">
+            <h2>Featured Recipes</h2>
+            <div class="underline"></div>
         </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container hero-grid">
-            <div class="hero-content">
-                <div class="compliance-badge">
-                    <span>&#10004;</span> Safe & Policy Compliant
-                </div>
-                <h1>Friday Night Funkin <br><span class="text-gradient">Mobile Customization Hub</span></h1>
-                <p>The #1 resource for custom tools, performance optimization, and visual enhancement guides. Personalize your rhythm game experience safely and easily.</p>
-                
-                <div style="display:flex; gap:1rem; flex-wrap:wrap; justify-content:center; @media(min-width:900px){justify-content:flex-start;}">
-                    <!-- CTA Link -->
-                    <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta">Download</a>
-                    <a href="#how-it-works" class="btn-cta btn-outline">How It Works</a>
+        <div class="recipe-grid">
+            <!-- Card 1 -->
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Salad" class="recipe-img">
+                <div class="recipe-content">
+                    <h3>Mediterranean Quinoa Bowl</h3>
+                    <p>A fresh and vibrant mix of organic greens, quinoa, and lemon zest dressing.</p>
                 </div>
             </div>
-
-            <!-- Visual Demonstration -->
-            <div class="hero-visuals">
-                <div class="visual-card">
-                    <img src="https://i.postimg.cc/tgfrz01L/download-(1).jpg" alt="Friday Night Funkin Gameplay Customization Example">
-                    <div class="caption">Game visuals shown for demonstration purposes only</div>
+            <!-- Card 2 -->
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&w=800&q=80" alt="Pancakes" class="recipe-img">
+                <div class="recipe-content">
+                    <h3>Fluffy Honey Pancakes</h3>
+                    <p>The perfect breakfast treat topped with fresh berries and organic honey syrup.</p>
+                </div>
+            </div>
+            <!-- Card 3 -->
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Pizza" class="recipe-img">
+                <div class="recipe-content">
+                    <h3>Artisan Margherita Pizza</h3>
+                    <p>Crispy thin crust with buffalo mozzarella, fresh basil, and vine-ripened tomatoes.</p>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80" alt="Toast" class="recipe-img">
+                <div class="recipe-content">
+                    <h3>Avocado Sourdough Toast</h3>
+                    <p>Creamy avocado smash on toasted sourdough with chili flakes and poached egg.</p>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=800&q=80" alt="Pasta" class="recipe-img">
+                <div class="recipe-content">
+                    <h3>Garlic Butter Shrimp Pasta</h3>
+                    <p>Succulent shrimp tossed in a rich garlic butter sauce with fresh parsley.</p>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="recipe-card">
+                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80" alt="Dessert" class="recipe-img">
+                <div class="recipe-content">
+                    <h3>Glazed Berry Donuts</h3>
+                    <p>Soft, melt-in-your-mouth donuts with a natural forest berry glaze.</p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- Features Section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Why Use <span class="text-blue-gradient">Custom Tools?</span></h2>
-            <p class="section-subtitle">Enhance your gameplay without breaking the rules. Our toolkit guides focus on optimization and personalization.</p>
-            
-            <div class="features-grid">
-                <!-- Feature 1 -->
-                <div class="feature-card">
-                    <div class="feature-icon">&#9881;</div>
-                    <h3>Performance Boost</h3>
-                    <p>Learn how to optimize settings to reduce lag and increase FPS on mobile devices. Essential for high-level rhythm gameplay.</p>
+<section class="categories" id="categories">
+    <div class="container">
+        <div class="section-title">
+            <h2>Popular Categories</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="category-grid">
+            <div class="category-item">Breakfast</div>
+            <div class="category-item">Lunch</div>
+            <div class="category-item">Dinner</div>
+            <div class="category-item">Desserts</div>
+            <div class="category-item">Healthy Meals</div>
+            <div class="category-item">Quick Recipes</div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <div class="container">
+        <div class="section-title">
+            <h2>What Our Cooks Say</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"The recipes here are so easy to follow! I made the Mediterranean bowl last night and my whole family loved it."</p>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/150?u=1" alt="User" class="user-img">
+                    <span>Sarah J.</span>
                 </div>
-
-                <!-- Feature 2 -->
-                <div class="feature-card">
-                    <div class="feature-icon">&#127912;</div>
-                    <h3>Visual Customization</h3>
-                    <p>Guides on applying custom skins, note colors, and background overlays to make the game look exactly how you want.</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"Finally, a food blog that focuses on flavor and simplicity. The pancake recipe is now a Sunday morning staple."</p>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/150?u=2" alt="User" class="user-img">
+                    <span>Michael R.</span>
                 </div>
-
-                <!-- Feature 3 -->
-                <div class="feature-card">
-                    <div class="feature-icon">&#127908;</div>
-                    <h3>Audio Tools</h3>
-                    <p>Setup guides for audio latency correction and rhythm calibration to ensure your taps hit perfectly on beat.</p>
-                </div>
-
-                <!-- Feature 4 -->
-                <div class="feature-card">
-                    <div class="feature-icon">&#128249;</div>
-                    <h3>Recording Overlays</h3>
-                    <p>Tools to add input overlays and hand-cam styles for content creators who want to record their gameplay.</p>
+            </div>
+            <div class="testimonial-card">
+                <p>"I love the variety of healthy options. It has completely transformed the way I meal prep for my work week."</p>
+                <div class="user-info">
+                    <img src="https://i.pravatar.cc/150?u=3" alt="User" class="user-img">
+                    <span>Emily T.</span>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <!-- How It Works -->
-    <section id="how-it-works" class="steps">
-        <div class="container">
-            <h2 class="section-title">How It <span class="text-gradient">Works</span></h2>
-            
-            <div class="step-list">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h4>Select Your Category</h4>
-                        <p>Browse our library of customization topics: Visuals, Audio, Performance, or Creation Tools.</p>
-                    </div>
-                </div>
+<section class="final-cta">
+    <div class="container">
+        <h2>Ready to Start Your Culinary Journey?</h2>
+        <a href="https://attorneycambridge.com/cl/i/vej19x" class="btn">CLICK HERE TO GET RECIPES</a>
+    </div>
+</section>
 
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h4>Get the Tools</h4>
-                        <p>Click "Download" to access our secure directory of recommended third-party utilities and configuration files.</p>
-                    </div>
-                </div>
-
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h4>Follow Setup Guide</h4>
-                        <p>Use our detailed, step-by-step instructions to apply changes safely. No root or jailbreak required for most tools.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Safety & Transparency Section -->
-    <section class="safety">
-        <div class="container">
-            <div class="safety-box">
-                <h2 style="color:white; margin-bottom:1rem; font-family: var(--font-display);">Safety & Transparency</h2>
-                <p style="color:var(--text-muted);">We believe in a fair and safe gaming community. This website is a resource hub for customization, not a source for hacks.</p>
-                
-                <div class="safety-grid">
-                    <div class="safety-item">
-                        <span class="check-icon">&#10004;</span> No Malware or Adware
-                    </div>
-                    <div class="safety-item">
-                        <span class="cross-icon">&#10008;</span> No Game Files Hosted
-                    </div>
-                    <div class="safety-item">
-                        <span class="check-icon">&#10004;</span> Safe 3rd Party Tools
-                    </div>
-                    <div class="safety-item">
-                        <span class="cross-icon">&#10008;</span> No Modified APKs
-                    </div>
-                    <div class="safety-item">
-                        <span class="check-icon">&#10004;</span> No Root Required
-                    </div>
-                    <div class="safety-item">
-                        <span class="cross-icon">&#10008;</span> No Cheats/Hacks
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked <span class="text-blue-gradient">Questions</span></h2>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h4>Is this an official FNF website?</h4>
-                    <p>No. We are a fan-made community hub providing guides and tools for customization. We are not affiliated with the official developers.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Is it safe to use these tools?</h4>
-                    <p>Yes. We only recommend tools that do not modify the game's core code or provide unfair advantages. However, you use them at your own responsibility.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Do these tools work on iOS and Android?</h4>
-                    <p>Most customization guides provided here are compatible with Android devices. iOS support depends on the specific tool being used.</p>
-                </div>
-
-                <div class="faq-item">
-                    <h4>Does this unlock paid content?</h4>
-                    <p>No. We strictly adhere to policies against piracy. We do not provide methods to bypass paywalls or acquire paid content for free.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Final CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <h2 class="section-title" style="margin-bottom: 2rem;">Ready to Customize?</h2>
-            <div style="margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-                <img src="https://i.postimg.cc/SRctsZKS/download.jpg" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1); width: 100%; opacity: 0.8;" alt="FNF Gameplay">
-                <div style="font-size: 0.7rem; color: #666; margin-top: 0.5rem;">Visual demonstration only</div>
-            </div>
-            <a href="https://attorneycambridge.com/cl/i/4o2dvj" class="btn-cta" style="font-size: 1.5rem; padding: 1.5rem 4rem;">Download</a>
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">Secure Access • Verified Tools</p>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="logo">Recipe Paradise</div>
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Use</a>
-                <a href="#">DMCA</a>
-                <a href="#">Contact</a>
-            </div>
-            <div class="disclaimer">
-                <p>&copy; 2024 FNF Mobile Hub. All rights reserved.</p>
-                <br>
-                <p>DISCLAIMER: This website is a fan-operated resource providing educational guides and customization tools. Friday Night Funkin is a trademark of its respective owners. This site is not affiliated with, endorsed by, or sponsored by the official developers. No official game files are hosted on this server.</p>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact Us</a>
             </div>
         </div>
-    </footer>
-
-    <!-- Simple Animation Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const observerOptions = {
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, observerOptions);
-
-            // Select elements to animate
-            const animatedElements = document.querySelectorAll('.feature-card, .step-item, .faq-item, .visual-card');
-            
-            animatedElements.forEach(el => {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(20px)';
-                el.style.transition = 'all 0.6s ease-out';
-                observer.observe(el);
-            });
-        });
-    </script>
-</body>
-</html>
+        <div class="copyright">
+            &copy; 2024 Recipe Paradise. All rights reserved. Professional Food Blog Template.
+        </div>
+    </div>
+</footer>
