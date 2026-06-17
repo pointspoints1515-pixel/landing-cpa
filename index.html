@@ -1,443 +1,1807 @@
-:root {
-        --primary: #E63946;
-        --secondary: #F28C28;
-        --accent: #FFB703;
-        --cream: #FFF9F5;
-        --dark: #2B2D42;
-        --light-grey: #F8F9FA;
-        --text: #4A4A4A;
-        --shadow: 0 10px 30px rgba(0,0,0,0.1);
-        --transition: all 0.3s ease;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Paradise | Premium Culinary Inspiration & Delicious Recipes</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    <style>
+        /* CSS Reset & Variable Definitions */
+        :root {
+            --primary: #D35400; /* Deep Terracotta Red-Orange */
+            --primary-light: #E67E22; /* Warm Orange */
+            --primary-dark: #A04000;
+            --accent: #F39C12; /* Golden Honey */
+            --bg-cream: #FDFBF7; /* Soft Premium Cream */
+            --bg-white: #FFFFFF;
+            --text-dark: #1E1E24; /* Elegant Deep Gray */
+            --text-muted: #5D5D6A;
+            --border-light: #F2EFE9;
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            --shadow-md: 0 10px 15px -3px rgba(160, 64, 0, 0.05), 0 4px 6px -2px rgba(160, 64, 0, 0.03);
+            --shadow-lg: 0 20px 25px -5px rgba(160, 64, 0, 0.08), 0 10px 10px -5px rgba(160, 64, 0, 0.04);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-    body {
-        font-family: 'Montserrat', sans-serif;
-        line-height: 1.6;
-        color: var(--text);
-        background-color: #fff;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    h1, h2, h3 {
-        font-family: 'Playfair Display', serif;
-        color: var(--dark);
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    a {
-        text-decoration: none;
-        transition: var(--transition);
-    }
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    ul {
-        list-style: none;
-    }
+        /* Container Layout */
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-    .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 20px;
-    }
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            font-weight: 700;
+            line-height: 1.25;
+        }
 
-    /* Header */
-    header {
-        background: #fff;
-        padding: 20px 0;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-    }
+        p {
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
 
-    nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
 
-    .logo {
-        font-size: 1.5rem;
-        font-weight: 700;
-        color: var(--primary);
-        font-family: 'Playfair Display', serif;
-    }
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
 
-    /* Hero Section */
-    .hero {
-        padding: 100px 0;
-        background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
-                    url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        color: #fff;
-        text-align: center;
-    }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--bg-white);
+            box-shadow: 0 8px 20px rgba(211, 84, 0, 0.25);
+        }
 
-    .hero h1 {
-        font-size: 3.5rem;
-        color: #fff;
-        margin-bottom: 20px;
-        max-width: 800px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(211, 84, 0, 0.35);
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+        }
 
-    .hero p {
-        font-size: 1.2rem;
-        margin-bottom: 40px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+        .btn-golden {
+            background: linear-gradient(135deg, var(--accent) 0%, #F5B041 100%);
+            color: #4A2306;
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.25);
+            font-weight: 700;
+        }
 
-    .btn {
-        display: inline-block;
-        padding: 18px 40px;
-        background-color: var(--primary);
-        color: #fff;
-        border-radius: 50px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        box-shadow: 0 4px 15px rgba(230, 57, 70, 0.4);
-    }
+        .btn-golden:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 28px rgba(243, 156, 18, 0.4);
+        }
 
-    .btn:hover {
-        background-color: var(--secondary);
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(242, 140, 40, 0.4);
-    }
+        /* Sticky Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: rgba(253, 251, 247, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-light);
+            transition: var(--transition);
+        }
 
-    /* Featured Recipes */
-    .section-title {
-        text-align: center;
-        margin-bottom: 60px;
-    }
+        header.scrolled {
+            box-shadow: var(--shadow-sm);
+            padding: 10px 0;
+        }
 
-    .section-title h2 {
-        font-size: 2.5rem;
-        margin-bottom: 10px;
-    }
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 0;
+        }
 
-    .section-title .underline {
-        width: 80px;
-        height: 4px;
-        background: var(--secondary);
-        margin: 0 auto;
-    }
+        .logo {
+            font-family: var(--font-serif);
+            font-size: 1.65rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    .featured {
-        padding: 80px 0;
-        background-color: var(--cream);
-    }
+        .logo i {
+            color: var(--accent);
+        }
 
-    .recipe-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+            align-items: center;
+        }
 
-    .recipe-card {
-        background: #fff;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-    }
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            position: relative;
+            padding: 6px 0;
+        }
 
-    .recipe-card:hover {
-        transform: translateY(-10px);
-    }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
 
-    .recipe-img {
-        height: 250px;
-        width: 100%;
-        object-fit: cover;
-    }
+        .nav-link:hover {
+            color: var(--primary);
+        }
 
-    .recipe-content {
-        padding: 25px;
-    }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-    .recipe-content h3 {
-        margin-bottom: 15px;
-        font-size: 1.4rem;
-    }
+        .nav-cta {
+            padding: 10px 22px;
+            font-size: 0.85rem;
+        }
 
-    .recipe-content p {
-        font-size: 0.95rem;
-        color: #666;
-    }
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            cursor: pointer;
+        }
 
-    /* Categories */
-    .categories {
-        padding: 80px 0;
-        text-align: center;
-    }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            background-image: linear-gradient(rgba(17, 12, 10, 0.65), rgba(17, 12, 10, 0.55)), url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--bg-white);
+            text-align: center;
+            overflow: hidden;
+        }
 
-    .category-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 20px;
-    }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            z-index: 10;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
 
-    .category-item {
-        padding: 30px;
-        background: var(--light-grey);
-        border-radius: 10px;
-        font-weight: 600;
-        color: var(--dark);
-        cursor: pointer;
-        transition: var(--transition);
-        border-bottom: 4px solid transparent;
-    }
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            font-weight: 800;
+        }
 
-    .category-item:hover {
-        background: #fff;
-        border-bottom-color: var(--secondary);
-        box-shadow: var(--shadow);
-    }
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            margin-bottom: 35px;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+            font-family: var(--font-sans);
+        }
 
-    /* Testimonials */
-    .testimonials {
-        padding: 80px 0;
-        background-color: var(--dark);
-        color: #fff;
-    }
+        /* Categories Section */
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px auto;
+        }
 
-    .testimonials h2 {
-        color: #fff;
-    }
+        .section-header h2 {
+            font-size: 2.6rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
 
-    .testimonial-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-    }
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary);
+            margin: 12px auto 0 auto;
+            border-radius: 2px;
+        }
 
-    .testimonial-card {
-        padding: 30px;
-        background: rgba(255,255,255,0.05);
-        border-radius: 15px;
-        font-style: italic;
-    }
+        .section-header p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
 
-    .user-info {
-        display: flex;
-        align-items: center;
-        margin-top: 20px;
-    }
+        .categories {
+            padding: 90px 0;
+            background-color: var(--bg-cream);
+        }
 
-    .user-img {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 15px;
-        background: #ccc;
-    }
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
 
-    /* Final CTA */
-    .final-cta {
-        padding: 100px 0;
-        text-align: center;
-        background-color: var(--cream);
-    }
+        .category-card {
+            position: relative;
+            height: 180px;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
 
-    .final-cta h2 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-    }
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
 
-    /* Footer */
-    footer {
-        background: #fff;
-        padding: 50px 0 20px;
-        border-top: 1px solid #eee;
-    }
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.1) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 20px;
+            transition: var(--transition);
+        }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
+        .category-card h3 {
+            color: var(--bg-white);
+            font-size: 1.3rem;
+            text-align: center;
+            font-weight: 700;
+            font-family: var(--font-sans);
+        }
 
-    .footer-links a {
-        margin-left: 20px;
-        color: var(--text);
-    }
+        .category-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+        }
 
-    .footer-links a:hover {
-        color: var(--primary);
-    }
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
 
-    .copyright {
-        width: 100%;
-        text-align: center;
-        margin-top: 40px;
-        font-size: 0.9rem;
-        color: #999;
-    }
+        .category-card:hover .category-overlay {
+            background: linear-gradient(to top, rgba(211, 84, 0, 0.9) 0%, rgba(0, 0, 0, 0.2) 100%);
+        }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-        .hero h1 { font-size: 2.5rem; }
-        .recipe-grid { grid-template-columns: 1fr; }
-        .footer-content { flex-direction: column; text-align: center; }
-        .footer-links a { margin: 0 10px; }
-    }
-</style> <header>
-    <div class="container">
-        <nav>
-            <div class="logo">Recipe Paradise</div>
-            <div class="footer-links">
-                <a href="#recipes">Recipes</a>
-                <a href="#categories">Categories</a>
+        /* Filter Tabs */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 30px;
+            background-color: var(--bg-white);
+            border: 1px solid var(--border-light);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-muted);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            border-color: var(--primary);
+            box-shadow: 0 4px 12px rgba(211, 84, 0, 0.2);
+        }
+
+        /* Recipes Grid */
+        .recipes {
+            padding: 90px 0;
+            background-color: var(--bg-white);
+        }
+
+        .recipes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .recipe-card {
+            background-color: var(--bg-white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .recipe-card.hidden {
+            display: none;
+        }
+
+        .recipe-image-wrapper {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .recipe-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .recipe-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .recipe-card-content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .recipe-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .recipe-rating {
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-weight: 700;
+        }
+
+        .recipe-card h3 {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            transition: var(--transition);
+        }
+
+        .recipe-card p {
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .recipe-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 18px;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .recipe-time {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .recipe-link {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(211, 84, 0, 0.15);
+        }
+
+        .recipe-card:hover .recipe-image-wrapper img {
+            transform: scale(1.08);
+        }
+
+        .recipe-card:hover h3 {
+            color: var(--primary);
+        }
+
+        .recipe-card:hover .recipe-link {
+            color: var(--primary-light);
+        }
+
+        /* Trending Section */
+        .trending {
+            padding: 90px 0;
+            background-color: var(--bg-cream);
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 30px;
+        }
+
+        .trending-card-large {
+            grid-column: span 7;
+            position: relative;
+            height: 520px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .trending-sidebar {
+            grid-column: span 5;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .trending-card-small {
+            position: relative;
+            height: 245px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .trending-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .trending-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.2) 60%, rgba(0, 0, 0, 0.0) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            color: var(--bg-white);
+        }
+
+        .trending-card-small .trending-gradient {
+            padding: 24px;
+        }
+
+        .trending-tag {
+            align-self: flex-start;
+            background-color: var(--primary);
+            color: var(--bg-white);
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .trending-card-large h3 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .trending-card-small h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
+
+        .trending-desc {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 18px;
+            font-size: 1rem;
+            max-width: 90%;
+        }
+
+        .trending-meta {
+            display: flex;
+            gap: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .trending-card-large:hover, .trending-card-small:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .trending-card-large:hover .trending-img, .trending-card-small:hover .trending-img {
+            transform: scale(1.05);
+        }
+
+        /* Why Choose Us Section */
+        .features {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-cream);
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--border-light);
+        }
+
+        .feature-icon-wrapper {
+            width: 80px;
+            height: 80px;
+            background-color: rgba(211, 84, 0, 0.08);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px auto;
+            color: var(--primary);
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: var(--text-dark);
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            background-color: var(--bg-white);
+            border-color: rgba(211, 84, 0, 0.2);
+        }
+
+        .feature-card:hover .feature-icon-wrapper {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            transform: rotateY(360deg);
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 90px 0;
+            background-color: var(--bg-cream);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background-color: var(--bg-white);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            margin-bottom: 18px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-light);
+        }
+
+        .author-info h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(211, 84, 0, 0.1);
+        }
+
+        /* CTA Banner Section */
+        .cta-section {
+            padding: 100px 0;
+            background-color: var(--bg-white);
+        }
+
+        .cta-banner {
+            position: relative;
+            background-image: linear-gradient(135deg, rgba(160, 64, 0, 0.95) 0%, rgba(211, 84, 0, 0.85) 100%), url('https://images.unsplash.com/photo-1543353071-10c8ba85a904?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 30px;
+            padding: 80px 40px;
+            text-align: center;
+            color: var(--bg-white);
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 5;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .cta-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            margin-bottom: 35px;
+        }
+
+        .cta-banner .btn-golden {
+            padding: 18px 40px;
+            font-size: 1.05rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #17110D; /* Luxurious warm deep dark */
+            color: rgba(255, 255, 255, 0.7);
+            padding: 80px 0 30px 0;
+            font-size: 0.95rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-family: var(--font-serif);
+            color: var(--bg-white);
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-logo i {
+            color: var(--accent);
+        }
+
+        .footer-about p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--bg-white);
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: var(--bg-white);
+            transform: translateY(-3px);
+        }
+
+        .footer-title {
+            color: var(--bg-white);
+            font-family: var(--font-sans);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.6);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+
+        .footer-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .contact-item i {
+            color: var(--primary-light);
+            font-size: 1.1rem;
+            margin-top: 3px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .footer-bottom-links a {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .trending-grid {
+                display: flex;
+                flex-direction: column;
+            }
+            .trending-card-large, .trending-card-small {
+                height: 350px;
+            }
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none; /* Hide standard nav on mobile */
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .nav-wrapper {
+                padding: 12px 0;
+            }
+
+            /* Responsive Mobile Menu Drawer */
+            .nav-menu.mobile-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--bg-cream);
+                box-shadow: var(--shadow-lg);
+                padding: 30px;
+                border-top: 1px solid var(--border-light);
+                gap: 20px;
+                text-align: center;
+            }
+
+            .nav-menu.mobile-active .nav-cta {
+                display: inline-flex;
+            }
+
+            .hero {
+                height: 75vh;
+            }
+
+            .section-header h2 {
+                font-size: 2.1rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta-banner {
+                padding: 50px 20px;
+            }
+        }
+
+        /* Smooth reveal animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll Animation utility styles */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="container">
+            <div class="nav-wrapper">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-utensils"></i> Recipe Paradise
+                </a>
+                
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#recipes" class="nav-link">Recipes</a></li>
+                    <li><a href="#categories" class="nav-link">Categories</a></li>
+                    <li><a href="#about" class="nav-link">About Us</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="https://attorneycambridge.com/cl/i/vej19x" class="btn btn-primary nav-cta">Get All Recipes</a></li>
+                </ul>
+
+                <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
-        </nav>
-    </div>
-</header>
-
-<section class="hero">
-    <div class="container">
-        <h1>Discover Hundreds of Delicious Recipes</h1>
-        <p>Explore easy, healthy, and family-friendly recipes from around the world. Elevate your cooking game today.</p>
-        <a href="https://attorneycambridge.com/cl/i/vej19x" class="btn">GET ALL RECIPES</a>
-    </div>
-</section>
-
-<section class="featured" id="recipes">
-    <div class="container">
-        <div class="section-title">
-            <h2>Featured Recipes</h2>
-            <div class="underline"></div>
         </div>
-        <div class="recipe-grid">
-            <!-- Card 1 -->
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Salad" class="recipe-img">
-                <div class="recipe-content">
-                    <h3>Mediterranean Quinoa Bowl</h3>
-                    <p>A fresh and vibrant mix of organic greens, quinoa, and lemon zest dressing.</p>
-                </div>
-            </div>
-            <!-- Card 2 -->
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7bb7445?auto=format&fit=crop&w=800&q=80" alt="Pancakes" class="recipe-img">
-                <div class="recipe-content">
-                    <h3>Fluffy Honey Pancakes</h3>
-                    <p>The perfect breakfast treat topped with fresh berries and organic honey syrup.</p>
-                </div>
-            </div>
-            <!-- Card 3 -->
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80" alt="Pizza" class="recipe-img">
-                <div class="recipe-content">
-                    <h3>Artisan Margherita Pizza</h3>
-                    <p>Crispy thin crust with buffalo mozzarella, fresh basil, and vine-ripened tomatoes.</p>
-                </div>
-            </div>
-            <!-- Card 4 -->
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?auto=format&fit=crop&w=800&q=80" alt="Toast" class="recipe-img">
-                <div class="recipe-content">
-                    <h3>Avocado Sourdough Toast</h3>
-                    <p>Creamy avocado smash on toasted sourdough with chili flakes and poached egg.</p>
-                </div>
-            </div>
-            <!-- Card 5 -->
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1473093226795-af9932fe5856?auto=format&fit=crop&w=800&q=80" alt="Pasta" class="recipe-img">
-                <div class="recipe-content">
-                    <h3>Garlic Butter Shrimp Pasta</h3>
-                    <p>Succulent shrimp tossed in a rich garlic butter sauce with fresh parsley.</p>
-                </div>
-            </div>
-            <!-- Card 6 -->
-            <div class="recipe-card">
-                <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=800&q=80" alt="Dessert" class="recipe-img">
-                <div class="recipe-content">
-                    <h3>Glazed Berry Donuts</h3>
-                    <p>Soft, melt-in-your-mouth donuts with a natural forest berry glaze.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+    </header>
 
-<section class="categories" id="categories">
-    <div class="container">
-        <div class="section-title">
-            <h2>Popular Categories</h2>
-            <div class="underline"></div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Discover Thousands of Delicious Recipes</h1>
+                <p>Easy meals, healthy dishes, desserts, snacks, and family favorites curated beautifully for your kitchen.</p>
+                <a href="https://attorneycambridge.com/cl/i/vej19x" class="btn btn-golden">
+                    Get All Recipes <i class="fa-solid fa-chevron-right"></i>
+                </a>
+            </div>
         </div>
-        <div class="category-grid">
-            <div class="category-item">Breakfast</div>
-            <div class="category-item">Lunch</div>
-            <div class="category-item">Dinner</div>
-            <div class="category-item">Desserts</div>
-            <div class="category-item">Healthy Meals</div>
-            <div class="category-item">Quick Recipes</div>
-        </div>
-    </div>
-</section>
+    </section>
 
-<section class="testimonials">
-    <div class="container">
-        <div class="section-title">
-            <h2>What Our Cooks Say</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>"The recipes here are so easy to follow! I made the Mediterranean bowl last night and my whole family loved it."</p>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=1" alt="User" class="user-img">
-                    <span>Sarah J.</span>
+    <!-- Popular Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Popular Categories</h2>
+                <p>Explore high-quality chef secrets filtered by style, occasion, dietary choice, or technique.</p>
+            </div>
+            
+            <div class="categories-grid reveal">
+                <div class="category-card" onclick="filterCategory('Breakfast')">
+                    <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&fit=crop&w=500&q=80" alt="Breakfast Category">
+                    <div class="category-overlay">
+                        <h3>Breakfast</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Lunch')">
+                    <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=500&q=80" alt="Lunch Category">
+                    <div class="category-overlay">
+                        <h3>Lunch</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Dinner')">
+                    <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=500&q=80" alt="Dinner Category">
+                    <div class="category-overlay">
+                        <h3>Dinner</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Dessert')">
+                    <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=500&q=80" alt="Desserts Category">
+                    <div class="category-overlay">
+                        <h3>Desserts</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Healthy')">
+                    <img src="https://images.unsplash.com/photo-1543339308-43e59d6b73a6?auto=format&fit=crop&w=500&q=80" alt="Healthy Meals Category">
+                    <div class="category-overlay">
+                        <h3>Healthy Meals</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Vegetarian')">
+                    <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=500&q=80" alt="Vegetarian Category">
+                    <div class="category-overlay">
+                        <h3>Vegetarian</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('Quick')">
+                    <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=500&q=80" alt="Quick Meals Category">
+                    <div class="category-overlay">
+                        <h3>Quick Meals</h3>
+                    </div>
+                </div>
+
+                <div class="category-card" onclick="filterCategory('International')">
+                    <img src="https://images.unsplash.com/photo-1534080564583-6be75777b70a?auto=format&fit=crop&w=500&q=80" alt="International Cuisine Category">
+                    <div class="category-overlay">
+                        <h3>International Cuisine</h3>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <p>"Finally, a food blog that focuses on flavor and simplicity. The pancake recipe is now a Sunday morning staple."</p>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=2" alt="User" class="user-img">
-                    <span>Michael R.</span>
+        </div>
+    </section>
+
+    <!-- Featured Recipes Grid (12 items) -->
+    <section class="recipes" id="recipes">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Chef's Masterpieces</h2>
+                <p>Taste-tested culinary ideas designed for beautiful kitchens and wonderful family dinners.</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <div class="filter-container reveal">
+                <button class="filter-btn active" data-filter="all">All Recipes</button>
+                <button class="filter-btn" data-filter="Breakfast">Breakfast</button>
+                <button class="filter-btn" data-filter="Lunch">Lunch</button>
+                <button class="filter-btn" data-filter="Dinner">Dinner</button>
+                <button class="filter-btn" data-filter="Dessert">Desserts</button>
+                <button class="filter-btn" data-filter="Healthy">Healthy</button>
+            </div>
+
+            <!-- 12 Recipe Cards -->
+            <div class="recipes-grid reveal">
+                
+                <!-- Card 1 -->
+                <div class="recipe-card" data-category="Dinner Healthy">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1604908176997-125f25cc6f3d?auto=format&fit=crop&w=800&q=80" alt="Creamy Tuscan Garlic Chicken">
+                        <span class="recipe-badge">Dinner</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 5.0</span>
+                            <span>• 620 kcal</span>
+                        </div>
+                        <h3>Creamy Tuscan Garlic Chicken</h3>
+                        <p>Pan-seared tender chicken breasts cooked in a rich, buttery garlic sauce filled with spinach and tomatoes.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 40 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="recipe-card" data-category="Breakfast Healthy">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80" alt="Avocado Toast with Poached Egg">
+                        <span class="recipe-badge">Breakfast</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                            <span>• 320 kcal</span>
+                        </div>
+                        <h3>Avocado Toast & Poached Egg</h3>
+                        <p>Fresh artisanal sourdough bread toasted to perfection, layered with dynamic avocado mash and perfectly runny poached eggs.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 15 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="recipe-card" data-category="Dinner">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1604068549290-dea0e4a305ca?auto=format&fit=crop&w=800&q=80" alt="Classic Italian Margherita Pizza">
+                        <span class="recipe-badge">Dinner</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                            <span>• 580 kcal</span>
+                        </div>
+                        <h3>Classic Margherita Pizza</h3>
+                        <p>Housemade yeasted crust baked at high heat topped with rich, slow-simmered tomato marinara, fresh mozzarella, and aromatic basil.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 35 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="recipe-card" data-category="Dessert">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1511018556340-d16986a1c194?auto=format&fit=crop&w=800&q=80" alt="Fresh Berry Pavlova">
+                        <span class="recipe-badge">Dessert</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                            <span>• 290 kcal</span>
+                        </div>
+                        <h3>Fresh Berry Pavlova</h3>
+                        <p>Crispy meringue base with a soft marshy interior, crowned with sweet vanilla whipped cream and seasonal red berries.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 90 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="recipe-card" data-category="Dinner Healthy">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1455619452474-d2be8b1e70cd?auto=format&fit=crop&w=800&q=80" alt="Spicy Thai Green Curry">
+                        <span class="recipe-badge">Dinner</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                            <span>• 490 kcal</span>
+                        </div>
+                        <h3>Spicy Thai Green Curry</h3>
+                        <p>Zesty and aromatic green chili sauce, combined with premium coconut milk, vegetables, fresh lemongrass, and sweet basil.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 35 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="recipe-card" data-category="Lunch Dinner">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Garlic Butter Steak Bites">
+                        <span class="recipe-badge">Lunch / Dinner</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 5.0</span>
+                            <span>• 680 kcal</span>
+                        </div>
+                        <h3>Garlic Butter Steak Bites</h3>
+                        <p>Quick-cooked beef tenderloin tips seared beautifully and tossed in rich garlic butter sauce, finished with fresh parsley.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 25 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="recipe-card" data-category="Lunch Healthy">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=80" alt="Vegan Buddha Bowl">
+                        <span class="recipe-badge">Healthy</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+                            <span>• 380 kcal</span>
+                        </div>
+                        <h3>Vegan Buddha Bowl</h3>
+                        <p>Vibrant combination of organic quinoa, seasoned chickpeas, roasted sweet potatoes, fresh kale, and gourmet tahini dressing.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 25 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="recipe-card" data-category="Breakfast">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=800&q=80" alt="Blueberry Lemon Pancakes">
+                        <span class="recipe-badge">Breakfast</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                            <span>• 450 kcal</span>
+                        </div>
+                        <h3>Blueberry Lemon Pancakes</h3>
+                        <p>Light and fluffy stack infused with zesty organic lemon and sweet local blueberries, drizzled with authentic maple syrup.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 20 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 9 -->
+                <div class="recipe-card" data-category="Dinner">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=800&q=80" alt="Slow-Cooked Beef Stew">
+                        <span class="recipe-badge">Dinner</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                            <span>• 550 kcal</span>
+                        </div>
+                        <h3>Slow-Cooked Beef Stew</h3>
+                        <p>Comforting chunks of prime beef simmered long and slow with root vegetables in a complex, deeply seasoned broth.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 180 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 10 -->
+                <div class="recipe-card" data-category="Dessert">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?auto=format&fit=crop&w=800&q=80" alt="Homemade Raspberry Macarons">
+                        <span class="recipe-badge">Dessert</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.7</span>
+                            <span>• 150 kcal</span>
+                        </div>
+                        <h3>Raspberry French Macarons</h3>
+                        <p>Delicate almond shells with a perfect chew, filled with freshly-made sour raspberry preserves and organic buttercream.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 120 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 11 -->
+                <div class="recipe-card" data-category="Lunch Healthy">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1485962398705-ef6a13c41e8f?auto=format&fit=crop&w=800&q=80" alt="Grilled Salmon with Mango Salsa">
+                        <span class="recipe-badge">Lunch</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                            <span>• 520 kcal</span>
+                        </div>
+                        <h3>Salmon with Mango Salsa</h3>
+                        <p>Ocean-caught fresh salmon fillet grilled to perfection, dressed with a refreshing chunky salsa of sweet mango and red onion.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 30 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 12 -->
+                <div class="recipe-card" data-category="Dessert">
+                    <div class="recipe-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=80" alt="Rich Chocolate Fudge Cake">
+                        <span class="recipe-badge">Dessert</span>
+                    </div>
+                    <div class="recipe-card-content">
+                        <div class="recipe-meta">
+                            <span class="recipe-rating"><i class="fa-solid fa-star"></i> 5.0</span>
+                            <span>• 480 kcal</span>
+                        </div>
+                        <h3>Rich Chocolate Fudge Cake</h3>
+                        <p>Gourmet moist chocolate cake layers frosted in smooth chocolate buttercream glaze for the absolute purist.</p>
+                        <div class="recipe-card-footer">
+                            <span class="recipe-time"><i class="fa-regular fa-clock"></i> 50 mins</span>
+                            <a href="https://attorneycambridge.com/cl/i/vej19x" class="recipe-link">Get Recipe <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Recipes Section -->
+    <section class="trending">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Currently Trending</h2>
+                <p>What culinary enthusiasts are searching and creating right now in kitchens around the globe.</p>
+            </div>
+
+            <div class="trending-grid reveal">
+                <!-- Large Spotlight Card -->
+                <div class="trending-card-large">
+                    <img class="trending-img" src="https://images.unsplash.com/photo-1514516345957-556ca7d90a29?auto=format&fit=crop&w=1000&q=80" alt="Honey Glazed Rack of Lamb">
+                    <div class="trending-gradient">
+                        <span class="trending-tag">Chef's Spotlight</span>
+                        <h3>Honey Glazed Rack of Lamb</h3>
+                        <p class="trending-desc">A gorgeous culinary centerpiece crusted with aromatic wild herbs, sweet organic honey, and coarse sea salt, slow-roasted to a stunning rosy perfection.</p>
+                        <div class="trending-meta">
+                            <span><i class="fa-regular fa-star"></i> 4.9 Rating</span>
+                            <span>• &nbsp;<i class="fa-regular fa-clock"></i> 55 Mins</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar Elements -->
+                <div class="trending-sidebar">
+                    <!-- Small Card 1 -->
+                    <div class="trending-card-small">
+                        <img class="trending-img" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=800&q=80" alt="Japanese Ramen Bowl">
+                        <div class="trending-gradient">
+                            <span class="trending-tag">Global Favorite</span>
+                            <h3>Traditional Shoyu Ramen</h3>
+                            <div class="trending-meta">
+                                <span><i class="fa-regular fa-star"></i> 4.9</span>
+                                <span>• &nbsp;45 Mins</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Small Card 2 -->
+                    <div class="trending-card-small">
+                        <img class="trending-img" src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=800&q=80" alt="Artisanal Sourdough Bread">
+                        <div class="trending-gradient">
+                            <span class="trending-tag">Baking Basics</span>
+                            <h3>Country Sourdough Bread</h3>
+                            <div class="trending-meta">
+                                <span><i class="fa-regular fa-star"></i> 5.0</span>
+                                <span>• &nbsp;24 Hours</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="testimonial-card">
-                <p>"I love the variety of healthy options. It has completely transformed the way I meal prep for my work week."</p>
-                <div class="user-info">
-                    <img src="https://i.pravatar.cc/150?u=3" alt="User" class="user-img">
-                    <span>Emily T.</span>
+        </div>
+    </section>
+
+    <!-- Why People Love Our Recipes -->
+    <section class="features" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Why Cook With Us?</h2>
+                <p>We craft culinary experiences tailored to modern homes. Here is why home cooks turn to us daily.</p>
+            </div>
+
+            <div class="features-grid reveal">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-kitchen-set"></i>
+                    </div>
+                    <h3>Easy Instructions</h3>
+                    <p>Our clear, sequential instructions eliminate cooking anxiety and ensure reliable dining experiences.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-leaf"></i>
+                    </div>
+                    <h3>Healthy Ingredients</h3>
+                    <p>We champion whole, fresh foods that satisfy cravings while prioritizing your vitality and well-being.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-wallet"></i>
+                    </div>
+                    <h3>Budget Friendly</h3>
+                    <p>Feasts don't have to require deep pockets. We use accessible ingredients designed to save pennies and enhance taste.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon-wrapper">
+                        <i class="fa-solid fa-face-smile"></i>
+                    </div>
+                    <h3>Family Approved</h3>
+                    <p>Our kitchen-tested food collection has successfully won over picky little eaters and gourmet foodies alike.</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="final-cta">
-    <div class="container">
-        <h2>Ready to Start Your Culinary Journey?</h2>
-        <a href="https://attorneycambridge.com/cl/i/vej19x" class="btn">CLICK HERE TO GET RECIPES</a>
-    </div>
-</section>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Loved By Millions</h2>
+                <p>Real stories, reviews, and home experiences shared by passionate members of our food-loving community.</p>
+            </div>
 
-<footer>
-    <div class="container">
-        <div class="footer-content">
-            <div class="logo">Recipe Paradise</div>
-            <div class="footer-links">
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Contact Us</a>
+            <div class="testimonials-grid reveal">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The Creamy Tuscan Garlic Chicken has become a weekly staple in our house. The directions are foolproof and the flavor depth is absolutely incredible."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Sarah Jenkins" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Sarah Jenkins</h4>
+                            <p>Home Cook, Oregon</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"As a culinary teacher, I am highly impressed by the clarity of these recipes. They manage to explain complicated pan sauces and heat management with ease."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Chef Marcus Aurelius" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Chef Marcus Aurelius</h4>
+                            <p>Culinary Consultant</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The healthy eating section completely saved my weeknights. Simple, low-calorie recipes that taste like premium dining! I feel energetic and healthy."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80" alt="David K." class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>David K.</h4>
+                            <p>Father of Two, Dallas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"The desserts here are pure magic. The Pavlova was a massive hit at my latest dinner gathering! Everyone asked where I discovered the amazing guide."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Elena Rostova" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Elena Rostova</h4>
+                            <p>Pastry Lover, Chicago</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"Quick meals that taste far better than premium restaurant takeout. The Spicy Thai Green Curry instructions were remarkably easy to master!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Michael Chen" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <p>Tech Professional, Seattle</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card">
+                    <div>
+                        <div class="testimonial-stars">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="testimonial-text">"My partner and I cook together every Sunday now using Recipe Paradise. The culinary layouts make the entire process so relaxing and fun."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Sophia & Liam" class="testimonial-avatar">
+                        <div class="author-info">
+                            <h4>Sophia &amp; Liam</h4>
+                            <p>Sunday Cooks, Boston</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2024 Recipe Paradise. All rights reserved. Professional Food Blog Template.
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-banner reveal">
+                <div class="cta-content">
+                    <h2>Ready to Elevate Your Daily Cooking?</h2>
+                    <p>Unlock thousands of master recipes, healthy alternatives, and step-by-step videos inside our premium handbook library.</p>
+                    <a href="https://attorneycambridge.com/cl/i/vej19x" class="btn btn-golden">
+                        CLICK HERE TO GET RECIPES <i class="fa-solid fa-circle-arrow-down animate-bounce"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-    </div>
-</footer>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <!-- About Column -->
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">
+                        <i class="fa-solid fa-utensils"></i> Recipe Paradise
+                    </a>
+                    <p>Transforming average home kitchens into creative culinary environments through curated master recipes, step-by-step guides, and fresh seasonal cooking.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Pinterest"><i class="fa-brands fa-pinterest-p"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Recipes Links -->
+                <div>
+                    <h3 class="footer-title">Explore Recipes</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" onclick="filterCategory('Breakfast')">Breakfast Specials</a></li>
+                        <li><a href="#" onclick="filterCategory('Lunch')">Healthy Lunches</a></li>
+                        <li><a href="#" onclick="filterCategory('Dinner')">Gourmet Dinners</a></li>
+                        <li><a href="#" onclick="filterCategory('Dessert')">Dream Desserts</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company Links -->
+                <div>
+                    <h3 class="footer-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#recipes">Chef Tips</a></li>
+                        <li><a href="https://attorneycambridge.com/cl/i/vej19x">Get Cookbook</a></li>
+                        <li><a href="#contact">Contact Care</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div>
+                    <h3 class="footer-title">Get in Touch</h3>
+                    <div class="footer-contact-info">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <p>120 Culinary Avenue, Gourmet City, NY 10001</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-envelope"></i>
+                            <p>hello@recipeparadise.com</p>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone"></i>
+                            <p>+1 (555) 345-6789</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Recipe Paradise. Created with passion for gourmet foods. All rights reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookie settings</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Sticky Header effect on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile Menu Drawer Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('mobile-active');
+            const icon = menuToggle.querySelector('i');
+            if (navMenu.classList.contains('mobile-active')) {
+                icon.className = 'fa-solid fa-xmark';
+            } else {
+                icon.className = 'fa-solid fa-bars';
+            }
+        });
+
+        // Close mobile menu when nav link is clicked
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('mobile-active');
+                menuToggle.querySelector('i').className = 'fa-solid fa-bars';
+            });
+        });
+
+        // Animated Reveal on Scroll
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const triggerBottom = (window.innerHeight / 5) * 4.5;
+            revealElements.forEach(elem => {
+                const elemTop = elem.getBoundingClientRect().top;
+                if (elemTop < triggerBottom) {
+                    elem.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        // Initial call on page load
+        revealOnScroll();
+
+        // Recipe Grid Filter Functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const recipeCards = document.querySelectorAll('.recipe-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Toggle active states on button tabs
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.getAttribute('data-filter');
+
+                recipeCards.forEach(card => {
+                    const cardCategories = card.getAttribute('data-category');
+                    if (filterValue === 'all' || cardCategories.includes(filterValue)) {
+                        card.classList.remove('hidden');
+                        card.style.opacity = '0';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 50);
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // External trigger function (from categories clicks)
+        function filterCategory(categoryName) {
+            // Scroll smoothly to recipes grid
+            document.getElementById('recipes').scrollIntoView({ behavior: 'smooth' });
+            
+            // Find corresponding button and trigger a click
+            const targetBtn = Array.from(filterButtons).find(btn => btn.getAttribute('data-filter') === categoryName);
+            if (targetBtn) {
+                targetBtn.click();
+            }
+        }
+    </script>
+</body>
+</html>
